@@ -115,14 +115,7 @@ namespace WiredBrainCoffeeSurveys.Reports
                 tasks.Add("Investigate coffee recipes and ingredients.");
             }
 
-            if (overallScore > 8.0)
-            {
-                tasks.Add("Work with leadership to reward staff.");
-            }
-            else
-            {
-                tasks.Add("Work with employees for improvement ideas.");
-            }
+            tasks.Add(overallScore > 8.0 ? "Work with leadership." : "Work with employees for ideas.");
 
             if (responseRate < .33)
             {
