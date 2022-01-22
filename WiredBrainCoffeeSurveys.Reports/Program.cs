@@ -7,6 +7,11 @@ namespace WiredBrainCoffeeSurveys.Reports
     {
         static void Main(string[] args)
         {
+            GenerateTasksReport();
+        }
+
+        public static void GenerateTasksReport()
+        {
             var tasks = new List<string>();
 
             // Calculated Values
