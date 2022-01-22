@@ -8,11 +8,27 @@ namespace WiredBrainCoffeeSurveys.Reports
     {
         static void Main(string[] args)
         {
-            GenerateWinnerEmails();
+            Console.WriteLine("Please specify a report to run (rewards, comments, tasks):");
+            var selectedReport = Console.ReadLine();
 
-            GenerateTasksReport();
+            switch (selectedReport)
+            {
+                case "rewards":
+                    GenerateWinnerEmails();
+                    break;
 
-            GenerateCommentsReport();
+                case "comments":
+                    GenerateCommentsReport();
+                    break;
+
+                case "tasks":
+                    GenerateTasksReport();
+                    break;
+
+                default:
+                    Console.WriteLine("Sorry, that's not a valid option.");
+                    break;
+            }      
         }
 
         public static void GenerateWinnerEmails()
@@ -122,7 +138,7 @@ namespace WiredBrainCoffeeSurveys.Reports
             Console.WriteLine(Environment.NewLine + "Task Output:");
             foreach(var task in tasks)
             {
-                Console.WriteLine(tasks);
+                Console.WriteLine(task);
             }
 
             File.WriteAllLines("TasksReport.csv", tasks);
