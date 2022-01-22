@@ -9,6 +9,11 @@ namespace WiredBrainCoffeeSurveys.Reports
         {
             GenerateTasksReport();
 
+            GenerateCommentsReport();
+        }
+
+        public static void GenerateCommentsReport()
+        {
             for (var i = 0; i < Q1Results.Responses.Count; i++)
             {
                 var currentResponse = Q1Results.Responses[i];
@@ -16,6 +21,14 @@ namespace WiredBrainCoffeeSurveys.Reports
                 if (currentResponse.WouldRecommend < 7.0)
                 {
                     Console.WriteLine(currentResponse.Comments);
+                }
+            }
+
+            foreach (var response in Q1Results.Responses)
+            {
+                if (response.AreaToImprove == Q1Results.AreaToImprove)
+                {
+                    Console.WriteLine(response.Comments);
                 }
             }
         }
